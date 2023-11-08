@@ -20,15 +20,3 @@ runs:
       run: |
         echo "num-args=`${{ github.action_path }}/count-args.sh ${{ inputs.arguments-to-count }}`" >> $GITHUB_OUTPUT
       shell: bash
-      
-count-args:            
-  runs-on: ubuntu-latest          
-  steps:      
-  - id: report-count
-    uses: GabrielMaties/arg-count-action@main       
-    with:          
-      arguments-to-count: ${{ github.event.inputs.myValues }}     
-  - run: echo      
-  - shell: bash       
-  run: |         
-    echo argument count is ${{ steps.report-count.outputs.arg-count }}    
